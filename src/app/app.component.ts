@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'project3';
+  title = 'Mặc định'
+  changeTitle = false
+  toogleTitle(){
+    this.changeTitle = !this.changeTitle
+    this.title = this.changeTitle?"Đã thay đổi":"Mặc định"
+  }
 }
