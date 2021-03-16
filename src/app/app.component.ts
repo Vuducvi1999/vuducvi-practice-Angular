@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = '';
-  GetInputValue(event){
-    this.title = event.target.value
-
-  }
 }
