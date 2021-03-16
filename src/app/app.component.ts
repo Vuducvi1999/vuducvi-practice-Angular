@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'project3';
+  title = '';
+  GetInputValue(event){
+    this.title = event.target.value
+
+  }
 }
