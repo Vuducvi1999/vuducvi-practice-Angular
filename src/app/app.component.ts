@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  logInputRef(inputRef){
-    console.log([inputRef])
+  multilClassBinding = {
+    txtLinethrough: true,
+    fontSizeBig: true,
+    txtItalic:true,
+    changeColor:true
   }
 }

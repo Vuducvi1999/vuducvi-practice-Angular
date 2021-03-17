@@ -1,3 +1,11 @@
-<input type="text" #inputUsernameRef />
-<p>Text from input by using template reference: {{ inputUsernameRef.value }}</p>
-<button (click)="logInputRef(inputUsernameRef)">console.log(inputRef)</button>
+<div [style]="{ color: 'red' }">hello world</div>
+<div [style.color]="'orange'">this is color oranges</div>
+<div
+  [style.color]="textRef.innerText.length % 2 == 0 ? 'red' : 'blue'"
+  #textRef
+>
+  It can be logic also
+</div>
+<div [class]="true && 'txtLinethrough'">this is lineThrough class</div>
+<div [class.fontSizeBig]="true">So big font size</div>
+<div [ngClass]="multilClassBinding">Multil class</div>
