@@ -1,0 +1,7 @@
+<p *ngIf="renderP">Hello world</p>
+
+<ul *ngFor="let subject of SubjectContainer">
+  <li>{{ subject }}</li>
+</ul>
+
+<button (click)="changeRenderP()">toogle Render</button>
