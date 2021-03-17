@@ -1,0 +1,3 @@
+<input type="text" #inputUsernameRef />
+<p>Text from input by using template reference: {{ inputUsernameRef.value }}</p>
+<button (click)="logInputRef(inputUsernameRef)">console.log(inputRef)</button>
