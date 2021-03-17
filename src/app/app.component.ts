@@ -15,9 +15,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private _service: PostService) {}
   ngOnInit() {
-    this.subscription = this._service
-      .getPost()
-      .subscribe((data) => (this.post = data));
+    this.subscription = this._service.getPost().subscribe(
+      (data) => (this.post = data),
+      (error) => console.log(error)
+    );
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
