@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="addText" (keyup.enter)="addItem(addText)" />
+<br />
+<button (click)="addItem(addText)">Add</button>
+<ul *ngFor="let item of txtContainer">
+  <li>
+    <p>{{ item.txt }}</p>
+    <button (click)="deleteItem(item.id)">delete {{ item.id }}</button>
+  </li>
+</ul>
