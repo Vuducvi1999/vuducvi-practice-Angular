@@ -6,6 +6,9 @@
 >
   It can be logic also
 </div>
+<div [ngStyle]="{ color: 'red', fontSize: '50px' }">
+  Hey, this apply ngStyle
+</div>
 <div [class]="true && 'txtLinethrough'">this is lineThrough class</div>
 <div [class.fontSizeBig]="true">So big font size</div>
-<div [ngClass]="multilClassBinding">Multil class</div>
+<div [ngClass]="multilClassBinding">Multil class using ngClass</div>
