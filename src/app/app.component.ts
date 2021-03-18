@@ -1,20 +1,25 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormGroupName } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  easyForm: FormGroup = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl(),
-    subjects: new FormGroup({
-      Angular: new FormControl(),
-      ASPNETCore: new FormControl(),
-    }),
-  });
+export class AppComponent implements OnInit {
+  easyForm: FormGroup;
+  constructor(private fbuilder: FormBuilder) {}
+  ngOnInit(): void {
+    this.easyForm = this.fbuilder.group({
+      username: 'đì fau',
+      password: 'none',
+      subjects: this.fbuilder.group({
+        Angular: false,
+        ASPNETCore: false,
+      }),
+    });
+  }
+
   onSubmit() {
     console.log(this.easyForm);
   }
