@@ -1,6 +1,10 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="easyForm">
   <input type="text" formControlName="username" /><br />
   <input type="password" formControlName="password" /><br />
+  <div formGroupName="subjects">
+    <input type="checkbox" formControlName="Angular" />Angular <br />
+    <input type="checkbox" formControlName="ASPNETCore" />ASP.NET Core
+  </div>
   <input type="submit" value="Submit" />
 </form>
 <p>{{ easyForm.value | json }}</p>
