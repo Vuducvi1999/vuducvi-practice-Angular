@@ -1,16 +1,16 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="easyForm">
-  <input type="text" formControlName="username" /><br />
-  <input type="password" formControlName="password" /><br />
-  <div formGroupName="subjects">
-    <input type="checkbox" formControlName="Angular" />Angular <br />
-    <input type="checkbox" formControlName="ASPNETCore" />ASP.NET Core
-  </div>
-  <input
-    type="submit"
-    value="Submit"
-    [disabled]="
-      easyForm.get('username').invalid || easyForm.get('subjects.Angular').value
-    "
-  />
-</form>
-<p>{{ easyForm.value | json }}</p>
+<a
+  [routerLink]="['/page1']"
+  routerLinkActive="colorRed"
+  [style]="{ marginRight: '1 rem', display: 'block' }"
+  >Page 1</a
+>
+<a
+  [routerLink]="['/page2']"
+  routerLinkActive="colorRed"
+  [style]="{ marginRight: '1 rem', display: 'block' }"
+  >Page 2</a
+>
+<a [routerLink]="['/sdaaaaaaaa']" routerLinkActive="router-link-active"
+  >direct to page not found</a
+>
+<router-outlet></router-outlet>
