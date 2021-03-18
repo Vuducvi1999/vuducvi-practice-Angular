@@ -1,5 +1,41 @@
-<form (ngSubmit)="onSubmit(formSigIn)" #formSigIn="ngForm">
-  <input type="text" name="username" /><br />
-  <input type="password" name="password" /><br />
-  <button type="submit">Submit</button>
+<form #formSignIn="ngForm" (ngSubmit)="onSubmit(formSignIn)">
+  <p *ngIf="inputUsername.touched && inputUsername.invalid">
+    Username required
+  </p>
+  <input
+    ngModel
+    #inputUsername="ngModel"
+    type="text"
+    name="username"
+    required
+  /><br />
+  <p *ngIf="inputPassword.touched && inputPassword.invalid">
+    Password required
+  </p>
+  <input
+    ngModel
+    #inputPassword="ngModel"
+    type="password"
+    name="password"
+    required
+    minlength="10"
+  /><br />
+  <div ngModelGroup="subjects">
+    <label>
+      <input type="checkbox" name="angular" [ngModel]="false" />Angular</label
+    ><br />
+    <label
+      ><input type="checkbox" name="ASP.NET Core" [ngModel]="false" />ASP.NET
+      Core</label
+    >
+  </div>
+  <button type="submit" [disabled]="formSignIn.invalid">Save</button>
 </form>
+<div>
+  <p *ngIf="formSignIn.submitted; else defaultValueComponent">
+    {{ formSignIn.value | json }}
+  </p>
+  <ng-template #defaultValueComponent>
+    <p>{{ formSignIn.submitted }}</p>
+  </ng-template>
+</div>
