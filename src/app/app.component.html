@@ -5,6 +5,12 @@
     <input type="checkbox" formControlName="Angular" />Angular <br />
     <input type="checkbox" formControlName="ASPNETCore" />ASP.NET Core
   </div>
-  <input type="submit" value="Submit" />
+  <input
+    type="submit"
+    value="Submit"
+    [disabled]="
+      easyForm.get('username').invalid || easyForm.get('subjects.Angular').value
+    "
+  />
 </form>
 <p>{{ easyForm.value | json }}</p>

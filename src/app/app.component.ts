@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,8 @@ export class AppComponent implements OnInit {
   constructor(private fbuilder: FormBuilder) {}
   ngOnInit(): void {
     this.easyForm = this.fbuilder.group({
-      username: 'đì fau',
-      password: 'none',
+      username: ['default', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required]],
       subjects: this.fbuilder.group({
         Angular: false,
         ASPNETCore: false,
@@ -21,6 +21,9 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.easyForm);
+    console.log(
+      // this.easyForm.get('username').invalid &&
+      this.easyForm.get('subjects.Angular').value
+    );
   }
 }
