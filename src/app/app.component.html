@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="easyForm">
+  <input type="text" formControlName="username" /><br />
+  <input type="password" formControlName="password" /><br />
+  <input type="submit" value="Submit" />
+</form>
+<p>{{ easyForm.value | json }}</p>
